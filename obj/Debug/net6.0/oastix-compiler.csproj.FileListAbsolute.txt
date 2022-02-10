@@ -1,0 +1,15 @@
+/home/oaster2000/oastix/oastix-compiler/obj/Debug/net6.0/oastix-compiler.csproj.AssemblyReference.cache
+/home/oaster2000/oastix/oastix-compiler/obj/Debug/net6.0/oastix-compiler.GeneratedMSBuildEditorConfig.editorconfig
+/home/oaster2000/oastix/oastix-compiler/obj/Debug/net6.0/oastix-compiler.AssemblyInfoInputs.cache
+/home/oaster2000/oastix/oastix-compiler/obj/Debug/net6.0/oastix-compiler.AssemblyInfo.cs
+/home/oaster2000/oastix/oastix-compiler/obj/Debug/net6.0/oastix-compiler.csproj.CoreCompileInputs.cache
+/home/oaster2000/oastix/oastix-compiler/bin/Debug/net6.0/oastix-compiler
+/home/oaster2000/oastix/oastix-compiler/bin/Debug/net6.0/oastix-compiler.deps.json
+/home/oaster2000/oastix/oastix-compiler/bin/Debug/net6.0/oastix-compiler.runtimeconfig.json
+/home/oaster2000/oastix/oastix-compiler/bin/Debug/net6.0/oastix-compiler.dll
+/home/oaster2000/oastix/oastix-compiler/bin/Debug/net6.0/ref/oastix-compiler.dll
+/home/oaster2000/oastix/oastix-compiler/bin/Debug/net6.0/oastix-compiler.pdb
+/home/oaster2000/oastix/oastix-compiler/obj/Debug/net6.0/oastix-compiler.dll
+/home/oaster2000/oastix/oastix-compiler/obj/Debug/net6.0/ref/oastix-compiler.dll
+/home/oaster2000/oastix/oastix-compiler/obj/Debug/net6.0/oastix-compiler.pdb
+/home/oaster2000/oastix/oastix-compiler/obj/Debug/net6.0/oastix-compiler.genruntimeconfig.cache
