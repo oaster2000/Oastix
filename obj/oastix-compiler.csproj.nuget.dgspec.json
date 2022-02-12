@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/oaster2000/oastix/oastix-compiler/oastix-compiler.csproj": {}
+    "C:\\Users\\gpfmp\\OneDrive\\Documents\\Oastix\\oastix-compiler\\oastix-compiler.csproj": {}
   },
   "projects": {
-    "/home/oaster2000/oastix/oastix-compiler/oastix-compiler.csproj": {
+    "C:\\Users\\gpfmp\\OneDrive\\Documents\\Oastix\\oastix-compiler\\oastix-compiler.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/oaster2000/oastix/oastix-compiler/oastix-compiler.csproj",
+        "projectUniqueName": "C:\\Users\\gpfmp\\OneDrive\\Documents\\Oastix\\oastix-compiler\\oastix-compiler.csproj",
         "projectName": "oastix-compiler",
-        "projectPath": "/home/oaster2000/oastix/oastix-compiler/oastix-compiler.csproj",
-        "packagesPath": "/home/oaster2000/.nuget/packages/",
-        "outputPath": "/home/oaster2000/oastix/oastix-compiler/obj/",
+        "projectPath": "C:\\Users\\gpfmp\\OneDrive\\Documents\\Oastix\\oastix-compiler\\oastix-compiler.csproj",
+        "packagesPath": "C:\\Users\\gpfmp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gpfmp\\OneDrive\\Documents\\Oastix\\oastix-compiler\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/oaster2000/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\gpfmp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
