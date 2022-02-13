@@ -2,7 +2,7 @@ namespace Oastix.CodeAnalysis.Syntax {
 
     internal static class SyntaxFacts {
 
-        public static int GetUnaryOperatorPrecedence (this SyntaxKind kind) {
+        public static int GetUnaryOperatorPrecedence(this SyntaxKind kind) {
 
             switch (kind) {
                 case SyntaxKind.PlusToken:
@@ -14,7 +14,7 @@ namespace Oastix.CodeAnalysis.Syntax {
             }
         }
 
-        public static int GetBinaryOperatorPrecedence (this SyntaxKind kind) {
+        public static int GetBinaryOperatorPrecedence(this SyntaxKind kind) {
 
             switch (kind) {
                 case SyntaxKind.StarToken:
@@ -30,5 +30,16 @@ namespace Oastix.CodeAnalysis.Syntax {
             }
         }
 
+        public static SyntaxKind GetKeywordKind(string text) {
+
+            switch (text) {
+                case "true":
+                    return SyntaxKind.TrueKeyword;
+                case "false":
+                    return SyntaxKind.FalseKeyword;
+                default:
+                    return SyntaxKind.IdentifierToken;
+            }
+        }
     }
 }

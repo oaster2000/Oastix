@@ -1,5 +1,5 @@
 namespace Oastix.CodeAnalysis.Syntax {
-    
+
     public enum SyntaxKind {
 
         //Tokens
@@ -13,11 +13,17 @@ namespace Oastix.CodeAnalysis.Syntax {
         SlashToken,
         OpenParenthesisToken,
         CloseParenthesisToken,
+        IdentifierToken,
+
+        // Keywords
+        FalseKeyword,
+        TrueKeyword,
 
         //Expressions
         LiteralExpression,
         BinaryExpression,
         ParenthesisedExpression,
         UnaryExpression
+
     }
 }
