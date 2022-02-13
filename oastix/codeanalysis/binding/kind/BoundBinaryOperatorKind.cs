@@ -3,7 +3,9 @@ namespace Oastix.CodeAnalysis.Binding {
         Addition,
         Subtraction,
         Multiplication,
-        Division
+        Division,
+        LogicalAnd,
+        LogicalOr
     }
 
 }

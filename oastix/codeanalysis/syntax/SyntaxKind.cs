@@ -11,6 +11,9 @@ namespace Oastix.CodeAnalysis.Syntax {
         MinusToken,
         StarToken,
         SlashToken,
+        BangToken,
+        AmpersandAmpersandToken,
+        PipePipeToken,
         OpenParenthesisToken,
         CloseParenthesisToken,
         IdentifierToken,
@@ -24,6 +27,5 @@ namespace Oastix.CodeAnalysis.Syntax {
         BinaryExpression,
         ParenthesisedExpression,
         UnaryExpression
-
     }
 }
