@@ -1,4 +1,5 @@
-namespace compiler.codeAnalysis {
+namespace Oastix.CodeAnalysis.Syntax {
+    
     public enum SyntaxKind {
 
         //Tokens

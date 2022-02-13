@@ -1,4 +1,5 @@
-namespace compiler.codeAnalysis {
+namespace Oastix.CodeAnalysis.Syntax {
+    
     public sealed class UnaryExpressionSyntax : ExpressionSyntax {
 
         public UnaryExpressionSyntax(SyntaxToken operatorToken, ExpressionSyntax operand) {

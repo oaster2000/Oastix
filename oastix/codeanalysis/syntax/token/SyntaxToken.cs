@@ -1,4 +1,4 @@
-namespace compiler.codeAnalysis {
+namespace Oastix.CodeAnalysis.Syntax {
     public sealed class SyntaxToken : SyntaxNode {
         public SyntaxToken(SyntaxKind kind, int position, string text, object value) {
 

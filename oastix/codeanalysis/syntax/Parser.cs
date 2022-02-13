@@ -1,5 +1,7 @@
-namespace compiler.codeAnalysis {
+namespace Oastix.CodeAnalysis.Syntax {
+
     internal sealed class Parser {
+        
         private readonly SyntaxToken[] _tokens;
 
         private List<string> _diagnostics = new List<string>();

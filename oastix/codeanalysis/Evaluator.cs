@@ -1,4 +1,6 @@
-namespace compiler.codeAnalysis {
+using Oastix.CodeAnalysis.Syntax;
+
+namespace Oastix.CodeAnalysis {
     
     public sealed class Evaluator {
 

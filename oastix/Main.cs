@@ -1,6 +1,7 @@
-﻿using compiler.codeAnalysis;
+﻿using Oastix.CodeAnalysis;
+using Oastix.CodeAnalysis.Syntax;
 
-namespace compiler
+namespace Oastix
 {
 
     class Program

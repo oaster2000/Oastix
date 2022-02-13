@@ -1,4 +1,4 @@
-namespace compiler.codeAnalysis {
+namespace Oastix.CodeAnalysis.Syntax {
     
     internal sealed class Lexer {
 

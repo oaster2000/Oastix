@@ -1,5 +1,7 @@
-namespace compiler.codeAnalysis {
+namespace Oastix.CodeAnalysis.Syntax {
+
     public abstract class ExpressionSyntax : SyntaxNode {
 
     }
+
 }
