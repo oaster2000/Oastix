@@ -1,25 +1,24 @@
-namespace compiler.codeAnalysis
-{
-    public sealed class ParenthesisedExpressionSyntax : ExpressionSyntax
-    {
-        public ParenthesisedExpressionSyntax(SyntaxToken openParenthesisToken, ExpressionSyntax expression, SyntaxToken closedParenthesisToken)
-        {
-            _openParenthesisToken = openParenthesisToken;
-            _expression = expression;
-            _closedParenthesisToken = closedParenthesisToken;
+namespace compiler.codeAnalysis {
+
+    public sealed class ParenthesisedExpressionSyntax : ExpressionSyntax {
+
+        public ParenthesisedExpressionSyntax(SyntaxToken openParenthesisToken, ExpressionSyntax expression, SyntaxToken closedParenthesisToken) {
+
+            OpenParenthesisToken = openParenthesisToken;
+            Expression = expression;
+            ClosedParenthesisToken = closedParenthesisToken;
         }
 
 
-        public override SyntaxKind _kind => SyntaxKind.ParenthesisedExpression;
-        public SyntaxToken _openParenthesisToken { get; }
-        public ExpressionSyntax _expression { get; }
-        public SyntaxToken _closedParenthesisToken { get; }
+        public override SyntaxKind Kind => SyntaxKind.ParenthesisedExpression;
+        public SyntaxToken OpenParenthesisToken { get; }
+        public ExpressionSyntax Expression { get; }
+        public SyntaxToken ClosedParenthesisToken { get; }
 
-        public override IEnumerable<SyntaxNode> GetChildren()
-        {
-            yield return _openParenthesisToken;
-            yield return _expression;
-            yield return _closedParenthesisToken;
+        public override IEnumerable<SyntaxNode> GetChildren() {
+            yield return OpenParenthesisToken;
+            yield return Expression;
+            yield return ClosedParenthesisToken;
         }
     }
 }

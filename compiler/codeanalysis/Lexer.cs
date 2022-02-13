@@ -1,24 +1,20 @@
-namespace compiler.codeAnalysis
-{
-    internal sealed class Lexer
-    {
+namespace compiler.codeAnalysis {
+    
+    internal sealed class Lexer {
 
         private readonly string _text;
         private int _position;
         private List<string> _diagnostics = new List<string>();
 
-        public Lexer(string text)
-        {
+        public Lexer(string text) {
             _text = text;
         }
 
         public IEnumerable<string> Diagnostics => _diagnostics;
 
-        private char Current
-        {
+        private char Current {
 
-            get
-            {
+            get {
                 if (_position >= _text.Length)
                     return '\0';
 
@@ -27,22 +23,18 @@ namespace compiler.codeAnalysis
 
         }
 
-        private void Next()
-        {
+        private void Next() {
 
             _position++;
 
         }
 
-        public SyntaxToken Lex()
-        {
-            if (_position >= _text.Length)
-            {
+        public SyntaxToken Lex() {
+            if (_position >= _text.Length) {
                 return new SyntaxToken(SyntaxKind.EndOfFileToken, _position, "\0", null);
             }
 
-            if (char.IsDigit(Current))
-            {
+            if (char.IsDigit(Current)) {
                 var start = _position;
 
                 while (char.IsDigit(Current))
@@ -57,8 +49,7 @@ namespace compiler.codeAnalysis
 
             }
 
-            if (char.IsWhiteSpace(Current))
-            {
+            if (char.IsWhiteSpace(Current)) {
                 var start = _position;
 
                 while (char.IsWhiteSpace(Current))
@@ -69,8 +60,7 @@ namespace compiler.codeAnalysis
                 return new SyntaxToken(SyntaxKind.WhitespaceToken, start, text, null);
             }
 
-            switch (Current)
-            {
+            switch (Current) {
                 case '+':
                     return new SyntaxToken(SyntaxKind.PlusToken, _position++, "+", null);
                 case '-':

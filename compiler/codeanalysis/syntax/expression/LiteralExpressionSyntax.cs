@@ -1,21 +1,17 @@
-namespace compiler.codeAnalysis
-{
-    public sealed class LiteralExpressionSyntax : ExpressionSyntax
-    {
+namespace compiler.codeAnalysis {
+    public sealed class LiteralExpressionSyntax : ExpressionSyntax {
 
-        public LiteralExpressionSyntax(SyntaxToken literalToken)
-        {
+        public LiteralExpressionSyntax(SyntaxToken literalToken) {
 
-            _literalToken = literalToken;
+            LiteralToken = literalToken;
 
         }
 
-        public override SyntaxKind _kind => SyntaxKind.LiteralExpression;
-        public SyntaxToken _literalToken { get; }
+        public override SyntaxKind Kind => SyntaxKind.LiteralExpression;
+        public SyntaxToken LiteralToken { get; }
 
-        public override IEnumerable<SyntaxNode> GetChildren()
-        {
-            yield return _literalToken;
+        public override IEnumerable<SyntaxNode> GetChildren() {
+            yield return LiteralToken;
         }
     }
 }

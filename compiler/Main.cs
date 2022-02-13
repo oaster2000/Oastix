@@ -37,20 +37,20 @@ namespace compiler
                 if (showTree)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkGray;
-                    PrettyPrint(syntaxTree._root);
+                    PrettyPrint(syntaxTree.Root);
                     Console.ResetColor();
                 }
 
-                if (!syntaxTree._diagnostics.Any())
+                if (!syntaxTree.Diagnostics.Any())
                 {
-                    var e = new Evaluator(syntaxTree._root);
+                    var e = new Evaluator(syntaxTree.Root);
                     var result = e.Evaluate();
                     Console.WriteLine(result);
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    foreach (var diagnostic in syntaxTree._diagnostics)
+                    foreach (var diagnostic in syntaxTree.Diagnostics)
                         Console.WriteLine(diagnostic);
                     Console.ResetColor();
                 }
@@ -62,12 +62,12 @@ namespace compiler
 
                 Console.Write(indent);
                 Console.Write(marker);
-                Console.Write(node._kind);
+                Console.Write(node.Kind);
 
-                if (node is SyntaxToken t && t._value != null)
+                if (node is SyntaxToken t && t.Value != null)
                 {
                     Console.Write(" ");
-                    Console.Write(t._value);
+                    Console.Write(t.Value);
                 }
 
                 Console.WriteLine();

@@ -1,27 +1,23 @@
-namespace compiler.codeAnalysis
-{
-    public sealed class BinaryExpressionSyntax : ExpressionSyntax
-    {
+namespace compiler.codeAnalysis {
+    public sealed class BinaryExpressionSyntax : ExpressionSyntax {
 
-        public BinaryExpressionSyntax(ExpressionSyntax left, SyntaxToken operatorToken, ExpressionSyntax right)
-        {
+        public BinaryExpressionSyntax(ExpressionSyntax left, SyntaxToken operatorToken, ExpressionSyntax right) {
 
-            _left = left;
-            _operatorToken = operatorToken;
-            _right = right;
+            Left = left;
+            OperatorToken = operatorToken;
+            Right = right;
 
         }
 
-        public override SyntaxKind _kind => SyntaxKind.BinaryExpression;
-        public ExpressionSyntax _left { get; }
-        public SyntaxToken _operatorToken { get; }
-        public ExpressionSyntax _right { get; }
+        public override SyntaxKind Kind => SyntaxKind.BinaryExpression;
+        public ExpressionSyntax Left { get; }
+        public SyntaxToken OperatorToken { get; }
+        public ExpressionSyntax Right { get; }
 
-        public override IEnumerable<SyntaxNode> GetChildren()
-        {
-            yield return _left;
-            yield return _operatorToken;
-            yield return _right;
+        public override IEnumerable<SyntaxNode> GetChildren() {
+            yield return Left;
+            yield return OperatorToken;
+            yield return Right;
         }
     }
 }

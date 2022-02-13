@@ -1,48 +1,42 @@
-namespace compiler.codeAnalysis
-{
-    public sealed class Evaluator
-    {
+namespace compiler.codeAnalysis {
+    
+    public sealed class Evaluator {
 
         private readonly ExpressionSyntax _root;
 
-        public Evaluator(ExpressionSyntax root)
-        {
+        public Evaluator(ExpressionSyntax root) {
             this._root = root;
         }
 
-        public int Evaluate()
-        {
+        public int Evaluate() {
             return EvaluateExpression(_root);
         }
 
-        private int EvaluateExpression(ExpressionSyntax node)
-        {
+        private int EvaluateExpression(ExpressionSyntax node) {
             if (node is LiteralExpressionSyntax n)
-                return (int)n._literalToken._value;
+                return (int)n.LiteralToken.Value;
 
-            if (node is BinaryExpressionSyntax b)
-            {
-                var left = EvaluateExpression(b._left);
-                var right = EvaluateExpression(b._right);
+            if (node is BinaryExpressionSyntax b) {
+                var left = EvaluateExpression(b.Left);
+                var right = EvaluateExpression(b.Right);
 
-                if (b._operatorToken._kind == SyntaxKind.PlusToken)
+                if (b.OperatorToken.Kind == SyntaxKind.PlusToken)
                     return left + right;
-                else if (b._operatorToken._kind == SyntaxKind.MinusToken)
+                else if (b.OperatorToken.Kind == SyntaxKind.MinusToken)
                     return left - right;
-                else if (b._operatorToken._kind == SyntaxKind.StarToken)
+                else if (b.OperatorToken.Kind == SyntaxKind.StarToken)
                     return left * right;
-                else if (b._operatorToken._kind == SyntaxKind.SlashToken)
+                else if (b.OperatorToken.Kind == SyntaxKind.SlashToken)
                     return left / right;
                 else
-                    throw new Exception($"Unexpected binary operator {b._operatorToken._kind}");
+                    throw new Exception($"Unexpected binary operator {b.OperatorToken.Kind}");
             }
 
-            if (node is ParenthesisedExpressionSyntax p)
-            {
-                return EvaluateExpression(p._expression);
+            if (node is ParenthesisedExpressionSyntax p) {
+                return EvaluateExpression(p.Expression);
             }
 
-            throw new Exception($"Unexpected node {node._kind}");
+            throw new Exception($"Unexpected node {node.Kind}");
         }
     }
 }

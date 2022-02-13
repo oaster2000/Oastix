@@ -1,7 +1,5 @@
-namespace compiler.codeAnalysis
-{
-    public abstract class ExpressionSyntax : SyntaxNode
-    {
+namespace compiler.codeAnalysis {
+    public abstract class ExpressionSyntax : SyntaxNode {
 
     }
 }

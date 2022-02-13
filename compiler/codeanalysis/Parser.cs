@@ -1,29 +1,23 @@
-namespace compiler.codeAnalysis
-{
-    internal sealed class Parser
-    {
-
+namespace compiler.codeAnalysis {
+    internal sealed class Parser {
         private readonly SyntaxToken[] _tokens;
 
         private List<string> _diagnostics = new List<string>();
         private int _position;
 
-        public Parser(string text)
-        {
+        public Parser(string text) {
             var tokens = new List<SyntaxToken>();
 
             var lexer = new Lexer(text);
             SyntaxToken token;
-            do
-            {
+            do {
                 token = lexer.Lex();
 
-                if (token._kind != SyntaxKind.WhitespaceToken && token._kind != SyntaxKind.BadToken)
-                {
+                if (token.Kind != SyntaxKind.WhitespaceToken && token.Kind != SyntaxKind.BadToken) {
                     tokens.Add(token);
                 }
 
-            } while (token._kind != SyntaxKind.EndOfFileToken);
+            } while (token.Kind != SyntaxKind.EndOfFileToken);
 
             _tokens = tokens.ToArray();
             _diagnostics.AddRange(lexer.Diagnostics);
@@ -32,8 +26,7 @@ namespace compiler.codeAnalysis
 
         public IEnumerable<string> Diagnostics => _diagnostics;
 
-        private SyntaxToken Peek(int offset)
-        {
+        private SyntaxToken Peek(int offset) {
             var index = _position + offset;
             if (index >= _tokens.Length)
                 return _tokens[_tokens.Length - 1];
@@ -41,45 +34,39 @@ namespace compiler.codeAnalysis
             return _tokens[index];
         }
 
-        private SyntaxToken NextToken()
-        {
+        private SyntaxToken NextToken() {
             var current = Current;
             _position++;
             return current;
         }
 
-        private SyntaxToken MatchToken(SyntaxKind kind)
-        {
-            if (Current._kind == kind)
-            {
+        private SyntaxToken MatchToken(SyntaxKind kind) {
+            if (Current.Kind == kind) {
                 return NextToken();
             }
 
 
-            _diagnostics.Add($"ERROR: Unexpected token: <{Current._kind}>, expected {kind}");
-            return new SyntaxToken(kind, Current._position, null, null);
+            _diagnostics.Add($"ERROR: Unexpected token: <{Current.Kind}>, expected {kind}");
+            return new SyntaxToken(kind, Current.Position, null, null);
         }
 
         private SyntaxToken Current => Peek(0);
 
-        public SyntaxTree Parse()
-        {
+        public SyntaxTree Parse() {
             var expression = ParseExpression();
             var endOfFileToken = MatchToken(SyntaxKind.EndOfFileToken);
 
             return new SyntaxTree(_diagnostics, expression, endOfFileToken);
         }
 
-        private ExpressionSyntax ParseExpression(int parentPrecedence = 0)
-        {
+        private ExpressionSyntax ParseExpression(int parentPrecedence = 0) {
             var left = ParsePrimaryExpression();
 
-            while (true)
-            {
-                var precedence = GetBinaryOperatorPrecedence(Current._kind);
+            while (true) {
+                var precedence = Current.Kind.GetBinaryOperatorPrecedence();
                 if (precedence == 0 || precedence <= parentPrecedence)
                     break;
-                
+
                 var operatorToken = NextToken();
                 var right = ParseExpression(precedence);
                 left = new BinaryExpressionSyntax(left, operatorToken, right);
@@ -88,27 +75,8 @@ namespace compiler.codeAnalysis
             return left;
         }
 
-        private static int GetBinaryOperatorPrecedence(SyntaxKind kind)
-        {
-            switch (kind)
-            {
-                case SyntaxKind.StarToken:
-                case SyntaxKind.SlashToken:
-                    return 2;
-                
-                case SyntaxKind.PlusToken:
-                case SyntaxKind.MinusToken:
-                    return 1;
-
-                default:
-                    return 0;
-            }
-        }
-
-        private ExpressionSyntax ParsePrimaryExpression()
-        {
-            if (Current._kind == SyntaxKind.OpenParenthesisToken)
-            {
+        private ExpressionSyntax ParsePrimaryExpression() {
+            if (Current.Kind == SyntaxKind.OpenParenthesisToken) {
                 var left = NextToken();
                 var expression = ParseExpression();
                 var right = MatchToken(SyntaxKind.CloseParenthesisToken);

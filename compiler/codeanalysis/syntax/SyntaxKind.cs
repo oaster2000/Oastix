@@ -1,23 +1,21 @@
-namespace compiler.codeAnalysis
-{
-    public enum SyntaxKind
-    {
+namespace compiler.codeAnalysis {
+    public enum SyntaxKind {
 
         //Tokens
-        BadToken, 
-        EndOfFileToken, 
-        WhitespaceToken, 
-        NumberToken, 
-        PlusToken, 
-        MinusToken, 
-        StarToken, 
-        SlashToken, 
-        OpenParenthesisToken, 
-        CloseParenthesisToken, 
+        BadToken,
+        EndOfFileToken,
+        WhitespaceToken,
+        NumberToken,
+        PlusToken,
+        MinusToken,
+        StarToken,
+        SlashToken,
+        OpenParenthesisToken,
+        CloseParenthesisToken,
 
         //Expressions
-        LiteralExpression, 
-        BinaryExpression, 
+        LiteralExpression,
+        BinaryExpression,
         ParenthesisedExpression
     }
 }
