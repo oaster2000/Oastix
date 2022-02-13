@@ -1,72 +1,62 @@
 ﻿using Oastix.CodeAnalysis;
+using Oastix.CodeAnalysis.Binding;
 using Oastix.CodeAnalysis.Syntax;
 
-namespace Oastix
-{
+namespace Oastix {
 
-    class Program
-    {
-        static void Main(string[] args)
-        {
+    class Program {
+        static void Main(string[] args) {
             bool showTree = false;
-            while (true)
-            {
-                Console.Write(">");
+            while (true) {
+                Console.Write("> ");
 
                 var line = Console.ReadLine();
 
                 if (string.IsNullOrWhiteSpace(line))
                     return;
-                if (line == "#showTree")
-                {
+                if (line == "#showTree") {
                     showTree = !showTree;
                     Console.WriteLine(showTree ? "Showing parse trees." : "Not showing parse trees.");
                     continue;
-                }
-                else if (line == "#cls")
-                {
+                } else if (line == "#cls") {
                     Console.Clear();
                     continue;
-                }
-                else if (line == "#exit")
-                {
+                } else if (line == "#exit") {
                     return;
                 }
 
                 var syntaxTree = SyntaxTree.Parse(line);
+                var binder = new Binder();
+                var boundExpression = binder.BindExpression(syntaxTree.Root);
 
-                if (showTree)
-                {
+                var diagnostics = syntaxTree.Diagnostics.Concat(binder.Diagnostics).ToArray();
+
+                if (showTree) {
                     Console.ForegroundColor = ConsoleColor.DarkGray;
                     PrettyPrint(syntaxTree.Root);
                     Console.ResetColor();
                 }
 
-                if (!syntaxTree.Diagnostics.Any())
-                {
-                    var e = new Evaluator(syntaxTree.Root);
+                if (!diagnostics.Any()) {
+                    var e = new Evaluator(boundExpression);
                     var result = e.Evaluate();
                     Console.WriteLine(result);
-                }
-                else
-                {
+                } else {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    foreach (var diagnostic in syntaxTree.Diagnostics)
+                    foreach (var diagnostic in diagnostics)
                         Console.WriteLine(diagnostic);
                     Console.ResetColor();
                 }
             }
 
-            static async void PrettyPrint(SyntaxNode node, string indent = "", bool isLast = true)
-            {
+            static async void PrettyPrint(SyntaxNode node, string indent = "", bool isLast = true) {
                 var marker = isLast ? "└── " : "├── ";
 
                 Console.Write(indent);
                 Console.Write(marker);
                 Console.Write(node.Kind);
 
-                if (node is SyntaxToken t && t.Value != null)
-                {
+                if (node is SyntaxToken t && t.Value != null) {
                     Console.Write(" ");
                     Console.Write(t.Value);
                 }
@@ -77,8 +67,7 @@ namespace Oastix
 
                 var lastChild = node.GetChildren().LastOrDefault();
 
-                foreach (var child in node.GetChildren())
-                {
+                foreach (var child in node.GetChildren()) {
                     PrettyPrint(child, indent, child == lastChild);
                 }
             }
