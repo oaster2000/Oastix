@@ -1,6 +1,6 @@
 namespace compiler.codeAnalysis
 {
-    class Lexer
+    internal sealed class Lexer
     {
 
         private readonly string _text;

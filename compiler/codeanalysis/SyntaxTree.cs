@@ -1,5 +1,6 @@
-namespace compiler.codeAnalysis{
-sealed class SyntaxTree
+namespace compiler.codeAnalysis
+{
+    public sealed class SyntaxTree
     {
         public SyntaxTree(IEnumerable<string> diagnostics, ExpressionSyntax root, SyntaxToken endOfFileToken)
         {

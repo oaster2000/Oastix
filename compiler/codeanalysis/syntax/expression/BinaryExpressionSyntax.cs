@@ -1,5 +1,6 @@
-namespace compiler.codeAnalysis{
-sealed class BinaryExpressionSyntax : ExpressionSyntax
+namespace compiler.codeAnalysis
+{
+    public sealed class BinaryExpressionSyntax : ExpressionSyntax
     {
 
         public BinaryExpressionSyntax(ExpressionSyntax left, SyntaxToken operatorToken, ExpressionSyntax right)

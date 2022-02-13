@@ -1,5 +1,6 @@
-namespace compiler.codeAnalysis{
- class SyntaxToken : SyntaxNode
+namespace compiler.codeAnalysis
+{
+    public sealed class SyntaxToken : SyntaxNode
     {
         public SyntaxToken(SyntaxKind kind, int position, string text, object value)
         {

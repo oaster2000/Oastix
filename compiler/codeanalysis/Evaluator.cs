@@ -1,5 +1,6 @@
-namespace compiler.codeAnalysis{
-class Evaluator
+namespace compiler.codeAnalysis
+{
+    public sealed class Evaluator
     {
 
         private readonly ExpressionSyntax _root;
@@ -16,8 +17,8 @@ class Evaluator
 
         private int EvaluateExpression(ExpressionSyntax node)
         {
-            if (node is NumberExpressionSyntax n)
-                return (int)n._numberToken._value;
+            if (node is LiteralExpressionSyntax n)
+                return (int)n._literalToken._value;
 
             if (node is BinaryExpressionSyntax b)
             {

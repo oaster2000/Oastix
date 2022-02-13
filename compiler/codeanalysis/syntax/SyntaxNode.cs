@@ -1,5 +1,6 @@
-namespace compiler.codeAnalysis{
-abstract class SyntaxNode
+namespace compiler.codeAnalysis
+{
+    public abstract class SyntaxNode
     {
 
         public abstract SyntaxKind _kind { get; }
