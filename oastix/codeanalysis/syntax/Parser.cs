@@ -64,7 +64,7 @@ namespace compiler.codeAnalysis {
             ExpressionSyntax left;
             var unaryOperatorPrecedence = Current.Kind.GetUnaryOperatorPrecedence();
 
-            if(unaryOperatorPrecedence != 9 && unaryOperatorPrecedence > parentPrecedence){
+            if(unaryOperatorPrecedence != 9 && unaryOperatorPrecedence >= parentPrecedence){
                 var operatorToken = NextToken();
                 var operand = ParseExpression(unaryOperatorPrecedence);
                 left = new UnaryExpressionSyntax(operatorToken, operand);
