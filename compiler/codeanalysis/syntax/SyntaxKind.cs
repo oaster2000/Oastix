@@ -16,6 +16,7 @@ namespace compiler.codeAnalysis {
         //Expressions
         LiteralExpression,
         BinaryExpression,
-        ParenthesisedExpression
+        ParenthesisedExpression,
+        UnaryExpression
     }
 }
