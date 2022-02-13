@@ -14,6 +14,8 @@ namespace Oastix.CodeAnalysis.Syntax {
         BangToken,
         AmpersandAmpersandToken,
         PipePipeToken,
+        BangEqualsToken,
+        EqualsEqualsToken,
         OpenParenthesisToken,
         CloseParenthesisToken,
         IdentifierToken,
