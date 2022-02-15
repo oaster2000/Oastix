@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Oastix.CodeAnalysis.Syntax {
 
     internal sealed class Lexer {

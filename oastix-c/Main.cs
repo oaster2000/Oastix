@@ -1,4 +1,6 @@
-﻿using Oastix.CodeAnalysis;
+﻿using System;
+using System.Linq;
+using Oastix.CodeAnalysis;
 using Oastix.CodeAnalysis.Binding;
 using Oastix.CodeAnalysis.Syntax;
 
@@ -26,10 +28,10 @@ namespace Oastix {
                 }
 
                 var syntaxTree = SyntaxTree.Parse(line);
-                var binder = new Binder();
-                var boundExpression = binder.BindExpression(syntaxTree.Root);
+                var compilation = new Compilation(syntaxTree);
+                var result = compilation.Evaluate();
 
-                var diagnostics = syntaxTree.Diagnostics.Concat(binder.Diagnostics).ToArray();
+                var diagnostics = result.Diagnostics;
 
                 if (showTree) {
                     Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -38,9 +40,7 @@ namespace Oastix {
                 }
 
                 if (!diagnostics.Any()) {
-                    var e = new Evaluator(boundExpression);
-                    var result = e.Evaluate();
-                    Console.WriteLine(result);
+                    Console.WriteLine(result.Value);
                 } else {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     foreach (var diagnostic in diagnostics)
@@ -49,7 +49,7 @@ namespace Oastix {
                 }
             }
 
-            static async void PrettyPrint(SyntaxNode node, string indent = "", bool isLast = true) {
+            static void PrettyPrint(SyntaxNode node, string indent = "", bool isLast = true) {
                 var marker = isLast ? "└── " : "├── ";
 
                 Console.Write(indent);

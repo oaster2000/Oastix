@@ -1,3 +1,5 @@
+using System;
+
 namespace Oastix.CodeAnalysis.Binding {
 
     internal sealed class BoundBinaryExpression : BoundExpression {

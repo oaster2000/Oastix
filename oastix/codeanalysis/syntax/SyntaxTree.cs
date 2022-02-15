@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Oastix.CodeAnalysis.Syntax {
 
     public sealed class SyntaxTree {
@@ -16,6 +19,6 @@ namespace Oastix.CodeAnalysis.Syntax {
             var parser = new Parser(text);
             return parser.Parse();
         }
-        
+
     }
 }

@@ -1,3 +1,5 @@
+using System;
+
 namespace Oastix.CodeAnalysis.Binding {
     internal sealed class BoundLiteralExpression : BoundExpression {
         public BoundLiteralExpression(object value) {

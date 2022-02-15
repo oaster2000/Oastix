@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Oastix.CodeAnalysis.Syntax {
     public abstract class SyntaxNode {
 

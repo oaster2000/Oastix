@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Oastix.CodeAnalysis.Syntax {
     public sealed class SyntaxToken : SyntaxNode {
         public SyntaxToken(SyntaxKind kind, int position, string text, object value) {

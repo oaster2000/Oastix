@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Oastix.CodeAnalysis.Syntax {
 
     public sealed class ParenthesisedExpressionSyntax : ExpressionSyntax {
