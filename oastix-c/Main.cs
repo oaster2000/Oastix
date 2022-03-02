@@ -23,8 +23,6 @@ namespace Oastix {
                 } else if (line == "#cls") {
                     Console.Clear();
                     continue;
-                } else if (line == "#exit") {
-                    return;
                 }
 
                 var syntaxTree = SyntaxTree.Parse(line);

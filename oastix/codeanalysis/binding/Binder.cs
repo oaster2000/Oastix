@@ -12,6 +12,8 @@ namespace Oastix.CodeAnalysis.Binding {
         public BoundExpression BindExpression(ExpressionSyntax syntax) {
 
             switch (syntax.Kind) {
+                case SyntaxKind.ParenthesisedExpression:
+                    return BindParenthesizedExpression((ParenthesisedExpressionSyntax)syntax);
                 case SyntaxKind.LiteralExpression:
                     return BindLiteralExpression((LiteralExpressionSyntax)syntax);
                 case SyntaxKind.UnaryExpression:
@@ -23,6 +25,11 @@ namespace Oastix.CodeAnalysis.Binding {
                     return new BoundLiteralExpression(null);
             }
 
+        }
+
+        private BoundExpression BindParenthesizedExpression(ParenthesisedExpressionSyntax syntax)
+        {
+            return BindExpression(syntax.Expression);
         }
 
         private BoundExpression BindLiteralExpression(LiteralExpressionSyntax syntax) {
