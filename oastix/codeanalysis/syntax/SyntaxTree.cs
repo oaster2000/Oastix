@@ -5,13 +5,13 @@ namespace Oastix.CodeAnalysis.Syntax {
 
     public sealed class SyntaxTree {
 
-        public SyntaxTree(IEnumerable<string> diagnostics, ExpressionSyntax root, SyntaxToken endOfFileToken) {
+        public SyntaxTree(IEnumerable<CodeAnalysis.Diagnostic> diagnostics, ExpressionSyntax root, SyntaxToken endOfFileToken) {
             Diagnostics = diagnostics.ToArray();
             Root = root;
             EndOfFileToken = endOfFileToken;
         }
 
-        public IReadOnlyList<string> Diagnostics { get; }
+        public IReadOnlyList<CodeAnalysis.Diagnostic> Diagnostics { get; }
         public ExpressionSyntax Root { get; }
         public SyntaxToken EndOfFileToken { get; }
 
